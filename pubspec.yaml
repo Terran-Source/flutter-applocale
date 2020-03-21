@@ -1,10 +1,11 @@
 name: applocale
-description: A starting point for Dart libraries or applications.
+description: A Flutter plugin to enable support for internationalization (i18n) or different language with json files.
 version: 0.1.0-dev+1
 authors:
   - Tamal Patra <patra.tamal@gmail.com>
 homepage: https://github.com/Terran-Source/applocale
 repository: https://github.com/Terran-Source/applocale
+issue_tracker: https://github.com/Terran-Source/applocale/issues
 
 environment:
   sdk: '>=2.1.0 <3.0.0'
