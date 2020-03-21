@@ -1,0 +1,17 @@
+name: applocale
+description: A starting point for Dart libraries or applications.
+version: 0.1.0-dev+1
+homepage: https://www.marganam.com
+repository: https://github.com/Terran-Source/applocale
+
+environment:
+  sdk: '>=2.1.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  test: ^1.14.2

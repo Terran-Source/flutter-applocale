@@ -1,0 +1,17 @@
+name: applocale_example
+description: Flutter Plugin Demo
+
+version: 0.1.0
+
+environment:
+  sdk: '>=2.1.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  applocale:
+    path: ../
+
+flutter:
+  uses-material-design: true
