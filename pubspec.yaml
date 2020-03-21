@@ -1,6 +1,8 @@
 name: applocale
 description: A starting point for Dart libraries or applications.
 version: 0.1.0-dev+1
+authors:
+  - Tamal Patra <patra.tamal@gmail.com>
 homepage: https://github.com/Terran-Source/applocale
 repository: https://github.com/Terran-Source/applocale
 
