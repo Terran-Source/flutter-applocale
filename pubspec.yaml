@@ -1,7 +1,7 @@
 name: applocale
 description: A starting point for Dart libraries or applications.
 version: 0.1.0-dev+1
-homepage: https://www.marganam.com
+homepage: https://github.com/Terran-Source/applocale
 repository: https://github.com/Terran-Source/applocale
 
 environment:
