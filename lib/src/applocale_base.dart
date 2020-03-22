@@ -37,7 +37,13 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
     // find the actual match
     var result =
         _supportedLocales.firstWhere((l) => l == locale, orElse: () => null);
-    if (result ?? false) return result;
+    if (null != result) return result;
+
+    // find the match with same name in lowercase
+    result = _supportedLocales.firstWhere(
+        (l) => l.toString().toLowerCase() == locale.toString().toLowerCase(),
+        orElse: () => null);
+    if (null != result) return result;
 
     // find the one with same languageCode but without any countryCode or scriptCode
     result = _supportedLocales.firstWhere(
@@ -46,20 +52,20 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
             (l.scriptCode?.isEmpty ?? true) &&
             l.languageCode == locale.languageCode,
         orElse: () => null);
-    if (result ?? false) return result;
+    if (null != result) return result;
 
     // find the one with same languageCode
     result = _supportedLocales.firstWhere(
         (l) => l.languageCode == locale.languageCode,
         orElse: () => null);
-    if (result ?? false) return result;
+    if (null != result) return result;
 
     // if all fails
     return null;
   }
 
   @override
-  bool isSupported(Locale locale) => _getSupportedLocale(locale) != null;
+  bool isSupported(Locale locale) => null != _getSupportedLocale(locale);
 
   @override
   Future<AppLocale> load(Locale locale) async {
@@ -93,8 +99,8 @@ class AppLocale {
 
   AppLocale._init(this.locale);
 
-  factory AppLocale(Locale locale) =>
-      _cache.putIfAbsent(locale.toString(), () => AppLocale._init(locale));
+  factory AppLocale(Locale locale) => _cache.putIfAbsent(
+      locale.toString().toLowerCase(), () => AppLocale._init(locale));
 
   static String _getAssetPath(String defaultContainerDirectory,
           String assetName, String extension) =>
