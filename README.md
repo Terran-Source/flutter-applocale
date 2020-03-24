@@ -7,7 +7,7 @@ A simple usage example:
 
 ### Project Structure
 
-![project_structure](docs/img/project_structure.png)
+![project_structure](doc/img/project_structure.png)
 
 #### Add the language directory as assets in pubspec.yaml
 ```yaml

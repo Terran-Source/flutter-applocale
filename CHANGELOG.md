@@ -1,3 +1,10 @@
+## 0.3.0
+
+- new LocaleDelegate.init() for compact initiation
+- updated Documentation
+- updated example
+- updated tests
+
 ## 0.2.0
 
 - out of dev cycle
