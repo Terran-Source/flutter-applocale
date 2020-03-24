@@ -1,18 +1,13 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:applocale/applocale.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-Map<String, Locale> get _supportedLanguages => <String, Locale>{
-      "English": getLocale("en"),
-      "English(USA)": getLocale("en_us"),
-      "Arabic": getLocale('ar')
-    };
-Locale get _defaultLocale => getLocale("en");
-LocaleDelegate _localeDelegate;
+// define supported Language lists
+Map<String, String> get _supportedLanguages =>
+    <String, String>{"en": "English", "en_us": "English(USA)", "ar": "Arabic"};
+String get _defaultLanguage => "en";
 
 void main(List<String> args) => runApp(FlutterDemoApp());
 
@@ -22,20 +17,24 @@ class FlutterDemoApp extends StatefulWidget {
 }
 
 class _FlutterDemoApp extends State<FlutterDemoApp> {
-  List<Locale> _supportedLocales() =>
-      _supportedLanguages.entries.map((l) => l.value).toList();
+  LocaleDelegate _localeDelegate;
+
+  List<String> _getSupportedLanguages() =>
+      _supportedLanguages.entries.map((l) => l.key).toList();
 
   @override
   void initState() {
     super.initState();
-    _localeDelegate = LocaleDelegate(_supportedLocales(), _defaultLocale);
+    // initialize _localeDelegate
+    _localeDelegate =
+        LocaleDelegate.init(_getSupportedLanguages(), _defaultLanguage);
   }
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        supportedLocales: _supportedLocales(),
+        supportedLocales: _localeDelegate.supportedLocales, // Step I
         localizationsDelegates: [
-          _localeDelegate,
+          _localeDelegate, // Step II
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate
         ],
@@ -47,7 +46,8 @@ class _FlutterDemoApp extends State<FlutterDemoApp> {
 class FlutterDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appLocale = LocaleDelegate.of(context);
+    // since LocaleDelegate is already initialized & ready
+    var appLocale = LocaleDelegate.of(context); // Step III
 
     return Scaffold(
       appBar: AppBar(title: Text(appLocale.localValue('title'))),

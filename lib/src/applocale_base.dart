@@ -11,25 +11,32 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   bool reload = true;
   Locale _currentLocale;
   final Locale _defaultLocale;
-  final String _defaultContainerDirectory;
+  final String _defaultLanguageDirectory;
   final List<Locale> _supportedLocales;
   static LocaleDelegate _cache;
+
+  List<Locale> get supportedLocales => _supportedLocales;
 
   // event handler to
   LocaleChangeCallback onLocaleChange;
 
   LocaleDelegate._init(this._supportedLocales, this._defaultLocale,
-      this._defaultContainerDirectory)
+      this._defaultLanguageDirectory)
       : assert(_supportedLocales.any((l) => l == _defaultLocale));
 
   factory LocaleDelegate(List<Locale> supportedLocales,
-      [Locale defaultLocale, String defaultContainerDirectory = 'i18n']) {
+      [Locale defaultLocale, String defaultLanguageDirectory = 'i18n']) {
     if (null == _cache) {
       _cache = LocaleDelegate._init(
-          supportedLocales, defaultLocale, defaultContainerDirectory);
+          supportedLocales, defaultLocale, defaultLanguageDirectory);
     }
     return _cache;
   }
+
+  static LocaleDelegate init(List<String> supportedLanguages,
+          [String defaultLanguage, String defaultLanguageDirectory = 'i18n']) =>
+      LocaleDelegate(supportedLanguages.map((l) => getLocale(l)).toList(),
+          getLocale(defaultLanguage), defaultLanguageDirectory);
 
   Locale _getSupportedLocale(Locale locale) {
     if (null == _supportedLocales) return null;
@@ -71,7 +78,7 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   Future<AppLocale> load(Locale locale) async {
     locale = _getSupportedLocale(locale);
     return AppLocale.load(
-        _defaultContainerDirectory, _currentLocale ?? locale, _defaultLocale);
+        _defaultLanguageDirectory, _currentLocale ?? locale, _defaultLocale);
   }
 
   @override
