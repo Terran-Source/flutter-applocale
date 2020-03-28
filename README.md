@@ -33,7 +33,7 @@ import 'package:applocale/applocale.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 // define supported Language lists
-var get _supportedLanguages => ["en", "en_us", "ar"];
+var get _supportedLanguages => ["en", "en_us", "bn"];
 var get _defaultLanguage => "en";
 
 void main(List<String> args) => runApp(FlutterDemoApp());

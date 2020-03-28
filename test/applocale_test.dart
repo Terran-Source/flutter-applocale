@@ -14,7 +14,7 @@ void main() {
       expect(_localeDelegate.isSupported(getLocale("en_us")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_US")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_UK")), isTrue);
-      expect(_localeDelegate.isSupported(getLocale("ar")), isTrue);
+      expect(_localeDelegate.isSupported(getLocale("bn")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("zs")), isFalse);
     });
   });
@@ -30,7 +30,7 @@ void main() {
       expect(_localeDelegate.isSupported(getLocale("en_us")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_US")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_UK")), isTrue);
-      expect(_localeDelegate.isSupported(getLocale("ar")), isTrue);
+      expect(_localeDelegate.isSupported(getLocale("bn")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("zs")), isFalse);
     });
   });
@@ -40,7 +40,7 @@ LocaleDelegate _localeDelegate;
 Map<String, String> _supportedLanguages = <String, String>{
   "en": "English",
   "en_us": "English(USA)",
-  "ar": "Arabic"
+  "bn": "Bengali"
 };
 var _defaultLocale = getLocale("en");
 var _defaultLocaleString = "en";

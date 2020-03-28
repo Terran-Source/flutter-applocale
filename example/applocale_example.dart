@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 // define supported Language lists
 Map<String, String> get _supportedLanguages =>
-    <String, String>{"en": "English", "en_us": "English(USA)", "ar": "Arabic"};
+    <String, String>{"en": "English", "en_us": "English(USA)", "bn": "Bengali"};
 String get _defaultLanguage => "en";
 
 void main(List<String> args) => runApp(FlutterDemoApp());
