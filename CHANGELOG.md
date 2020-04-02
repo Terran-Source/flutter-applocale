@@ -1,3 +1,6 @@
+## 0.3.2
+- null check for getLocale
+
 ## 0.3.1
 - change in example & test
 
