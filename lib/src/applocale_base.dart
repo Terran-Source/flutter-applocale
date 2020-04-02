@@ -80,8 +80,10 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   Future<AppLocale> load(Locale locale) async {
     locale = _getSupportedLocale(locale);
     _currentLocale ??= locale;
-    return AppLocale.load(
+    var appLocale = AppLocale(locale);
+    await appLocale.load(
         _defaultLanguageDirectory, _currentLocale, _defaultLocale);
+    return appLocale;
   }
 
   @override
@@ -115,42 +117,30 @@ class AppLocale {
   factory AppLocale(Locale locale) => _cache.putIfAbsent(
       locale.toString().toLowerCase(), () => AppLocale._init(locale));
 
-  static String _getAssetPath(String defaultContainerDirectory,
-          String assetName, String extension) =>
+  String _getAssetPath(String defaultContainerDirectory, String assetName,
+          String extension) =>
       path.join(defaultContainerDirectory, '$assetName.$extension');
 
-  static Future<Map<String, dynamic>> _getAssetJson(
+  Future<Map<String, dynamic>> _getAssetJson(
           String defaultContainerDirectory, String assetName,
           [String extension = 'json']) async =>
       json.decode(await rootBundle.loadString(
           _getAssetPath(defaultContainerDirectory, assetName, extension)));
 
-  static Future<AppLocale> load(String defaultContainerDirectory, Locale locale,
+  Future<bool> load(String defaultContainerDirectory, Locale locale,
       [Locale defaultLocale]) async {
-    var appLocale = AppLocale(locale);
-    if (!appLocale._isLoaded) {
-      appLocale._values = await _getAssetJson(
-          defaultContainerDirectory, appLocale.locale.toString());
-      if (null != defaultLocale && appLocale.locale != defaultLocale) {
+    if (!_isLoaded) {
+      _values =
+          await _getAssetJson(defaultContainerDirectory, locale.toString());
+      if (null != defaultLocale && locale != defaultLocale) {
         var defaultValues = await _getAssetJson(
             defaultContainerDirectory, defaultLocale.toString());
-        defaultValues.forEach((key, obj) {
-          var keyCode = key.toString();
-          appLocale._values[keyCode] ??= defaultValues[keyCode];
-        });
+        _values.addAll(defaultValues);
       }
-      appLocale._isLoaded = true;
+      _isLoaded = true;
     }
-    return appLocale;
+    return _isLoaded;
   }
-
-  /// Always use LocaleDelegate.init(). This function is here for legacy support.
-  static LocalizationsDelegate<AppLocale> delegate(
-          List<Locale> supportedLocales,
-          [Locale defaultLocale,
-          String defaultContainerDirectory]) =>
-      LocaleDelegate(
-          supportedLocales, defaultLocale, defaultContainerDirectory);
 
   String get currentLocale => locale.toString();
 
@@ -164,5 +154,10 @@ class AppLocale {
     } else // else, retrieve direct value
       result = _values[key];
     return result?.toString() ?? '';
+  }
+
+  bool updateValue(Map<String, dynamic> newValues) {
+    _values.addAll(newValues);
+    return true;
   }
 }
