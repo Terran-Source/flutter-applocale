@@ -1,3 +1,8 @@
+## 0.3.4
+- removed many sticky static substances
+- added AppLocale.updateValue()
+- removed AppLocale.delegate()
+
 ## 0.3.3
 - LocaleDelegate
 
