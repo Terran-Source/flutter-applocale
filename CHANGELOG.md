@@ -1,3 +1,6 @@
+## 0.3.3
+- LocaleDelegate
+
 ## 0.3.2
 - null check for getLocale
 
