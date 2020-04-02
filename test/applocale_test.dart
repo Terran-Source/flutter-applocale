@@ -9,7 +9,7 @@ void main() {
       _localeDelegate = LocaleDelegate(_supportedLocales(), _defaultLocale);
     });
 
-    test('First Test', () {
+    test('Test isSupported', () {
       expect(_localeDelegate.isSupported(getLocale("en")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_us")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_US")), isTrue);
@@ -25,7 +25,7 @@ void main() {
           LocaleDelegate.init(_supportedLocaleStrings(), _defaultLocaleString);
     });
 
-    test('First Test', () {
+    test('Test isSupported', () {
       expect(_localeDelegate.isSupported(getLocale("en")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_us")), isTrue);
       expect(_localeDelegate.isSupported(getLocale("en_US")), isTrue);

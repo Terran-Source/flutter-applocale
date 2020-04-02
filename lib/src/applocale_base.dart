@@ -22,8 +22,10 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
 
   LocaleDelegate._init(this._supportedLocales, this._defaultLocale,
       this._defaultLanguageDirectory)
-      : assert(_supportedLocales.any((l) => l == _defaultLocale));
+      : assert(_supportedLocales.any((l) => l == (_defaultLocale ?? l))),
+        assert(null != _defaultLanguageDirectory);
 
+  /// deprecated: use LocaleDelegate.init() instead.
   factory LocaleDelegate(List<Locale> supportedLocales,
       [Locale defaultLocale, String defaultLanguageDirectory = 'i18n']) {
     if (null == _cache) {
@@ -138,6 +140,7 @@ class AppLocale {
     return appLocale;
   }
 
+  /// Always use LocaleDelegate.init(). This function is here for legacy support.
   static LocalizationsDelegate<AppLocale> delegate(
           List<Locale> supportedLocales,
           [Locale defaultLocale,
