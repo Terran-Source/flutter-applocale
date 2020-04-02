@@ -79,8 +79,9 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   @override
   Future<AppLocale> load(Locale locale) async {
     locale = _getSupportedLocale(locale);
+    _currentLocale ??= locale;
     return AppLocale.load(
-        _defaultLanguageDirectory, _currentLocale ?? locale, _defaultLocale);
+        _defaultLanguageDirectory, _currentLocale, _defaultLocale);
   }
 
   @override
@@ -90,9 +91,12 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   }
 
   Locale changeLocale(Locale locale) {
-    _currentLocale = _getSupportedLocale(locale);
-    reload = null != _currentLocale;
-    if (reload) onLocaleChange(_currentLocale);
+    var _newLocale = _getSupportedLocale(locale);
+    reload = null != _newLocale && _newLocale != _currentLocale;
+    if (reload) {
+      _currentLocale = _newLocale;
+      onLocaleChange(_currentLocale);
+    }
     return _currentLocale;
   }
 
