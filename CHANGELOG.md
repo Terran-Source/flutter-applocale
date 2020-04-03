@@ -1,3 +1,7 @@
+## 0.3.6
+- bug fixes
+- API documentation
+
 ## 0.3.5
 - fixing minor bugs
 
