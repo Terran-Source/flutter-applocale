@@ -1,3 +1,6 @@
+## 0.3.8
+- Added community documents
+
 ## 0.3.7
 - update API documentation
 
