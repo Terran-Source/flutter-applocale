@@ -8,7 +8,7 @@ import 'package:path/path.dart' as path;
 import 'applocale_utility.dart';
 
 class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
-  bool reload = true;
+  bool _reload = true;
   Locale _currentLocale;
   final Locale _defaultLocale;
   final String _defaultLanguageDirectory;
@@ -80,22 +80,21 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   Future<AppLocale> load(Locale locale) async {
     locale = _getSupportedLocale(locale);
     _currentLocale ??= locale;
-    var appLocale = AppLocale(locale);
-    await appLocale.load(
-        _defaultLanguageDirectory, _currentLocale, _defaultLocale);
+    var appLocale = AppLocale(_currentLocale);
+    await appLocale.load(_defaultLanguageDirectory, _defaultLocale);
     return appLocale;
   }
 
   @override
   bool shouldReload(LocalizationsDelegate<AppLocale> old) {
-    reload = !reload;
-    return !reload;
+    _reload = !_reload;
+    return !_reload;
   }
 
   Locale changeLocale(Locale locale) {
     var _newLocale = _getSupportedLocale(locale);
-    reload = null != _newLocale && _newLocale != _currentLocale;
-    if (reload) {
+    _reload = null != _newLocale && _newLocale != _currentLocale;
+    if (_reload) {
       _currentLocale = _newLocale;
       onLocaleChange(_currentLocale);
     }
@@ -127,7 +126,7 @@ class AppLocale {
       json.decode(await rootBundle.loadString(
           _getAssetPath(defaultContainerDirectory, assetName, extension)));
 
-  Future<bool> load(String defaultContainerDirectory, Locale locale,
+  Future<bool> load(String defaultContainerDirectory,
       [Locale defaultLocale]) async {
     if (!_isLoaded) {
       _values =
