@@ -49,7 +49,7 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   /// as attached as json inside [defaultLanguageDirectory] directory
   /// (e.g. ["en", "en_us", "bn"] for the
   /// i18n/en.json, i18n/en_us.json, i18n/bn.json).
-  /// {@image <image alt='project_structure' src='img/project_structure.png'>}
+  /// {@image <image alt='project_structure' src='https://github.com/Terran-Source/applocale/raw/master/doc/img/project_structure.png'>}
   ///
   /// [defaultLanguage] json values are considered complete.
   /// In case of any supported language translation is not completed,
