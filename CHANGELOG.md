@@ -1,3 +1,6 @@
+## 0.3.7
+- update API documentation
+
 ## 0.3.6
 - bug fixes
 - API documentation
