@@ -9,7 +9,7 @@ import 'applocale_utility.dart';
 
 /// A factory to define application level `Localizations`.
 ///
-/// Create an instance using [`LocaleDelegate.init`]() & add that to the app's
+/// Create an instance using `LocaleDelegate.`[init] & add that to the app's
 /// `localizationsDelegates` list.
 class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   bool _reload = true;
@@ -33,7 +33,7 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
 
   /// Default Constructor
   ///
-  /// deprecated: use [`LocaleDelegate.init`]() instead.
+  /// deprecated: use `LocaleDelegate.`[init] instead.
   factory LocaleDelegate(List<Locale> supportedLocales,
       [Locale defaultLocale, String defaultLanguageDirectory = 'i18n']) {
     if (null == _cache) {
@@ -111,6 +111,7 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   }
 
   /// To dynamically change the application language without restart.
+  ///
   /// It automatically calls the [onLocaleChange].
   Locale changeLocale(Locale locale) {
     var _newLocale = _getSupportedLocale(locale);
@@ -127,10 +128,10 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
       Localizations.of<AppLocale>(context, AppLocale);
 }
 
-/// The fruit of labour that `LocaleDelegate` produces.
+/// The fruit of labour that [LocaleDelegate] produces.
 ///
 /// Get the current instance inside any widget (except the `main` one)
-/// through `LocaleDelegate.of(context)` & use [`localValue(key)`]
+/// through `LocaleDelegate.of(context)` & use [localValue]
 /// to get the localized value
 class AppLocale {
   /// The application [locale] loaded (or to be loaded).
@@ -177,13 +178,13 @@ class AppLocale {
     return _isLoaded;
   }
 
-  /// [locale] a unicode string format
+  /// [locale] in unicode string format
   String get currentLocale => locale.toString();
 
   /// Get the value of the [key] from the provide language json file
   ///
   /// Supports multi-level.
-  /// Don't shy to pass "root.sub.sobOfSub" as [key] if the json has it.
+  /// Don't shy to pass `root.sub.sobOfSub` as [key] if the json has it.
   String localValue(String key) {
     dynamic result;
     // if dynamic traversal is required

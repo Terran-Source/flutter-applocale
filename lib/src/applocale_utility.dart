@@ -3,8 +3,8 @@ import 'dart:ui';
 /// The callback type delegator for `LocaleDelegate`
 typedef Future<bool> LocaleChangeCallback(Locale locale);
 
-/// Get the equivalent Locale from the unicode string value
-/// (preferably all lowercase & with "_" (underscore) & not "-" (hyphen) separator).
+/// Get the Locale from the equivalent [unicodeLang] unicode string value
+/// (preferably all lowercase & with `_` (underscore) & not `-` (hyphen) separator).
 /// e.g. en => English, en_us => English(USA) etc.
 Locale getLocale(String unicodeLang) {
   if (null != unicodeLang) {
