@@ -1,3 +1,6 @@
+## 0.3.5
+- fixing minor bugs
+
 ## 0.3.4
 - removed many sticky static substances
 - added AppLocale.updateValue()
