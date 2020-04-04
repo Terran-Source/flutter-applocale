@@ -1,3 +1,7 @@
+## 0.3.11
+- upgrade interpolation package
+- update example & documentation
+
 ## 0.3.10
 - support for interpolation (string substitution) inside language.json files
 
