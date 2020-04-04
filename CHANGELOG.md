@@ -1,3 +1,6 @@
+## 0.3.10
+- support for interpolation (string substitution) inside language.json files
+
 ## 0.3.9
 - updated AppLocale.localValue()
 
