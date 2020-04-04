@@ -1,3 +1,6 @@
+## 0.3.9
+- updated AppLocale.localValue()
+
 ## 0.3.8
 - Added community documents
 
