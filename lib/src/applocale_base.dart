@@ -184,17 +184,12 @@ class AppLocale {
   /// Get the value of the [key] from the provide language json file
   ///
   /// Supports multi-level.
-  /// Don't shy to pass `root.sub.sobOfSub` as [key] if the json has it.
+  /// Don't shy to pass `root.sub.subOfSub` as [key] if the json has it.
   String localValue(String key) {
-    dynamic result;
-    // if dynamic traversal is required
-    if (key.contains('.')) {
-      var keys = key.split('.');
-      var initObj = _values[keys[0]];
-      result = keys.skip(1).fold(initObj, (parent, k) => parent[k] ?? null);
-    } else // else, retrieve direct value
-      result = _values[key];
-    return result?.toString() ?? '';
+    dynamic result = key
+        .split('.')
+        .fold(_values, (parent, k) => parent is String ? parent : parent[k]);
+    return result?.toString() ?? key;
   }
 
   /// Some values are not determined until the application starts
