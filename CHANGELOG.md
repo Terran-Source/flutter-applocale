@@ -1,3 +1,6 @@
+## 0.3.14
+- Fix bugs: introducing deep copy with _updateMap
+
 ## 0.3.13
 - update AppLocale.localValue to support runtime substitution with additional values
 
