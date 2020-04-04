@@ -1,3 +1,6 @@
+## 0.3.12
+- upgrade interpolation package
+
 ## 0.3.11
 - upgrade interpolation package
 - update example & documentation
