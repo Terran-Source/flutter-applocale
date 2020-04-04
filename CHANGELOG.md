@@ -1,3 +1,6 @@
+## 0.3.13
+- update AppLocale.localValue to support runtime substitution with additional values
+
 ## 0.3.12
 - upgrade interpolation package
 
