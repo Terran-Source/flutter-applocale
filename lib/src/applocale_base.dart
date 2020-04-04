@@ -152,6 +152,20 @@ class AppLocale {
   factory AppLocale(Locale locale) => _cache.putIfAbsent(
       locale.toString().toLowerCase(), () => AppLocale._init(locale));
 
+  void _updateMap(Map<String, dynamic> target, Map<String, dynamic> source) {
+    source.forEach((key, val) {
+      if (target.containsKey(key)) {
+        if (!(source[key] is Map<String, dynamic>))
+          target[key] = source[key];
+        else if (!(target[key] is Map<String, dynamic>))
+          target[key] = source[key];
+        else
+          _updateMap(target[key], source[key]);
+      } else
+        target[key] = source[key];
+    });
+  }
+
   String _getAssetPath(String defaultContainerDirectory, String assetName,
           String extension) =>
       path.join(defaultContainerDirectory, '$assetName.$extension');
@@ -174,7 +188,7 @@ class AppLocale {
         var defaultValues = await _getAssetJson(
             defaultContainerDirectory, defaultLocale.toString());
         // take the values from [defaultLocale], not present in [locale]
-        defaultValues.addAll(_values);
+        _updateMap(defaultValues, _values);
         _values = defaultValues;
       }
       _values = _interpolation.resolve(_values, true);
@@ -204,7 +218,7 @@ class AppLocale {
   ///
   /// Here additional runtime values can be set or update existing ones.
   bool updateValue(Map<String, dynamic> newValues) {
-    _values.addAll(newValues);
+    _updateMap(_values, newValues);
     _values = _interpolation.resolve(_values, true);
     return true;
   }
