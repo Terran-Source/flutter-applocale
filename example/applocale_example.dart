@@ -55,7 +55,7 @@ class FlutterDemo extends StatelessWidget {
       appBar: AppBar(title: Text(appLocale.localValue('title'))),
       body: ListView(
         children: <Widget>[
-          Center(child: Text(appLocale.localValue('greeting'))),
+          Center(child: Text(appLocale.localValue('subDetail.greeting'))),
           Center(child: Text(appLocale.localValue('message'))),
         ],
       ),
