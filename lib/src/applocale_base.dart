@@ -186,11 +186,18 @@ class AppLocale {
   /// [locale] in unicode string format
   String get currentLocale => locale.toString();
 
-  /// Get the value of the [key] from the provide language json file
+  /// Get the value of the [key] from the provide language json file.
+  /// Additional [values] can be provided to substitute {placeholders}.
   ///
   /// Supports multi-level.
   /// Don't shy to pass `root.sub.subOfSub` as [key] if the json has it.
-  String localValue(String key) => _interpolation.traverse(_values, key);
+  String localValue(String key, [Map<String, dynamic> values]) {
+    var result = _interpolation.traverse(_values, key);
+    if (null != values) {
+      result = _interpolation.eval(result, values);
+    }
+    return result;
+  }
 
   /// Some values are not determined until the application starts
   /// (i.e. set during runtime).
