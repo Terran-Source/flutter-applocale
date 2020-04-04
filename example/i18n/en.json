@@ -1,4 +1,9 @@
 {
-  "title": "Hello!",
-  "Message": "This is English!!!"
+  "title": "Awesome!",
+  "hello": "Hello",
+  "message": "This is English!!!",
+  "user": "{name}",
+  "subDetail": {
+    "greeting": "{hello} {user}!!!"
+  }
 }

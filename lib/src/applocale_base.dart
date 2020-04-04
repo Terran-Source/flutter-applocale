@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
+import 'package:interpolation/interpolation.dart';
 import 'package:path/path.dart' as path;
 
 import 'applocale_utility.dart';
@@ -137,10 +138,13 @@ class AppLocale {
   /// The application [locale] loaded (or to be loaded).
   final Locale locale;
   static final Map<String, AppLocale> _cache = <String, AppLocale>{};
+  Interpolation _interpolation;
   Map<String, dynamic> _values;
   bool _isLoaded = false;
 
-  AppLocale._init(this.locale);
+  AppLocale._init(this.locale) {
+    _interpolation = Interpolation();
+  }
 
   /// Default constructor
   ///
@@ -173,6 +177,7 @@ class AppLocale {
         defaultValues.addAll(_values);
         _values = defaultValues;
       }
+      _values = _interpolation.resolve(_values, true);
       _isLoaded = true;
     }
     return _isLoaded;
@@ -185,12 +190,7 @@ class AppLocale {
   ///
   /// Supports multi-level.
   /// Don't shy to pass `root.sub.subOfSub` as [key] if the json has it.
-  String localValue(String key) {
-    dynamic result = key
-        .split('.')
-        .fold(_values, (parent, k) => parent is String ? parent : parent[k]);
-    return result?.toString() ?? key;
-  }
+  String localValue(String key) => _interpolation.traverse(_values, key);
 
   /// Some values are not determined until the application starts
   /// (i.e. set during runtime).
@@ -198,6 +198,7 @@ class AppLocale {
   /// Here additional runtime values can be set or update existing ones.
   bool updateValue(Map<String, dynamic> newValues) {
     _values.addAll(newValues);
+    _values = _interpolation.resolve(_values, true);
     return true;
   }
 }

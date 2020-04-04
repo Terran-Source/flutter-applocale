@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  interpolation: ^0.2.2
   path: ^1.6.4
 
 dev_dependencies:

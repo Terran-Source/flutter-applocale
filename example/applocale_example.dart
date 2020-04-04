@@ -48,12 +48,15 @@ class FlutterDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     // since LocaleDelegate is already initialized & ready
     var appLocale = LocaleDelegate.of(context); // Step III
+    // In case some additional values can be set now
+    appLocale.updateValue({'name': 'Jayanti'});
 
     return Scaffold(
       appBar: AppBar(title: Text(appLocale.localValue('title'))),
       body: ListView(
         children: <Widget>[
-          Center(child: Text(appLocale.localValue('Message'))),
+          Center(child: Text(appLocale.localValue('greeting'))),
+          Center(child: Text(appLocale.localValue('message'))),
         ],
       ),
     );
