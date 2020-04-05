@@ -2,9 +2,8 @@
   "title": "Awesome!",
   "hello": "Hello",
   "message": "This is English!!!",
-  "user": "{name}",
   "subDetail": {
-    "greeting": "{hello} {user}!!!",
-    "runtimeText": "I have proof, you can replace {me}"
+    "greeting": "{hello} {name}!!!",
+    "runtimeText": "I have proof, you can replace {replacement}"
   }
 }

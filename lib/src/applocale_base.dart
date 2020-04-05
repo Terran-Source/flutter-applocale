@@ -12,6 +12,23 @@ import 'applocale_utility.dart';
 ///
 /// Create an instance using `LocaleDelegate.`[init] & add that to the app's
 /// `localizationsDelegates` list.
+///
+/// ```dart
+/// // define supported Language lists
+/// var get _supportedLanguages => ["en", "en_us", "bn"];
+/// var get _defaultLanguage => "en";
+///
+/// class _FlutterDemoApp extends State<FlutterDemoApp> {
+///   LocaleDelegate _localeDelegate = = LocaleDelegate.init(_supportedLanguages, _defaultLanguage);
+///
+///   @override
+///   Widget build(BuildContext context) => MaterialApp(
+///     supportedLocales: _localeDelegate.supportedLocales,
+///     localizationsDelegates: [
+///       _localeDelegate
+///     ],
+///   );
+/// ```
 class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
   bool _reload = true;
   Locale _currentLocale;
@@ -134,6 +151,17 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
 /// Get the current instance inside any widget (except the `main` one)
 /// through `LocaleDelegate.of(context)` & use [localValue]
 /// to get the localized value
+///
+/// ```dart
+///   @override
+///   Widget build(BuildContext context) {
+///     var appLocale = LocaleDelegate.of(context);
+///     var someText = appLocale.localValue('title');
+///     // text with placeholder parameter can be replaced
+///     // e.g.: 'message': 'To {to}, This is a sample Message, from {from}'
+///     var someTextWithParameter = appLocale.localValue('message', {'to': 'World', 'from': 'Happy'});
+///   }
+/// ```
 class AppLocale {
   /// The application [locale] loaded (or to be loaded).
   final Locale locale;
@@ -213,10 +241,9 @@ class AppLocale {
     return result;
   }
 
+  /// Set additional (or Update existing) runtime values.
   /// Some values are not determined until the application starts
   /// (i.e. set during runtime).
-  ///
-  /// Here additional runtime values can be set or update existing ones.
   bool updateValue(Map<String, dynamic> newValues) {
     _updateMap(_values, newValues);
     _values = _interpolation.resolve(_values, true);

@@ -57,8 +57,8 @@ class FlutterDemo extends StatelessWidget {
         children: <Widget>[
           Center(child: Text(appLocale.localValue('subDetail.greeting'))),
           Center(
-              child: Text(appLocale
-                  .localValue('subDetail.runtimeText', {'me': 'Individual'}))),
+              child: Text(appLocale.localValue(
+                  'subDetail.runtimeText', {'replacement': 'Individual'}))),
           Center(child: Text(appLocale.localValue('message'))),
         ],
       ),

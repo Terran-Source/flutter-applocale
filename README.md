@@ -6,8 +6,31 @@ A Flutter plugin to enable support for internationalization (i18n) or different 
 A simple usage example:
 
 ### Project Structure
-
 ![project_structure](doc/img/project_structure.png)
+
+#### lang.json contents
+```json
+//en.json
+{
+  "title": "Awesome!",
+  "hello": "Hello",
+  "message": "This is English!!!",
+  "subDetail": {
+    "greeting": "{hello} {name}!!!",
+    "runtimeText": "I have proof, you can replace {replacement}"
+  }
+}
+
+//bn.json
+{
+  "title": "অভূতপূর্ব!",
+  "hello": "নমস্কার",
+  "message": "ইহা বাংলা!!!",
+  "subDetail": {
+    "runtimeText": "আমি জানি যে {replacement}কে যে কোনও দিন চলে যেতে হবে।"
+  }
+}
+```
 
 #### Add the language directory as assets in pubspec.yaml
 ```yaml
@@ -80,7 +103,7 @@ class FlutterDemo extends StatelessWidget {
         children: <Widget>[
           Center(child: Text(appLocale.localValue('subDetail.greeting'))),
           Center(child: Text(
-            appLocale.localValue('subDetail.runtimeText', {'me': 'Individual'}))),
+            appLocale.localValue('subDetail.runtimeText', {'replacement': 'Individual'}))),
           Center(child: Text(appLocale.localValue('message'))),
         ],
       ),
@@ -88,6 +111,12 @@ class FlutterDemo extends StatelessWidget {
   }
 }
 ```
+
+### Project Structure
+![App with English](doc/img/app_en.png)![Change system language](doc/img/app_lang.png)![App with Bengali](doc/img/app_bn.png)
+*App with English*  > *Change system language* > *App with Bengali*
+
+![App with English](doc/img/live_example.gif)
 
 ## Features and bugs
 

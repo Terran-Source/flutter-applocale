@@ -1,5 +1,8 @@
 {
   "title": "অভূতপূর্ব!",
   "hello": "নমস্কার",
-  "message": "ইহা বাংলা!!!"
+  "message": "ইহা বাংলা!!!",
+  "subDetail": {
+    "runtimeText": "আমি জানি যে {replacement}কে যে কোনও দিন চলে যেতে হবে।"
+  }
 }
