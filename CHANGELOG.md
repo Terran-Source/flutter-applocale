@@ -1,3 +1,6 @@
+## 0.3.16
+- added LocaleDelegate.changeLanguage
+
 ## 0.3.15
 - update documentation
 
