@@ -114,6 +114,7 @@ class FlutterDemo extends StatelessWidget {
 
 ### Project Structure
 ![App with English](doc/img/app_en.png)![Change system language](doc/img/app_lang.png)![App with Bengali](doc/img/app_bn.png)
+
 *App with English*  > *Change system language* > *App with Bengali*
 
 ![App with English](doc/img/live_example.gif)

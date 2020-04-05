@@ -128,7 +128,7 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
     return !_reload;
   }
 
-  /// To dynamically change the application language without restart.
+  /// To dynamically change the application [locale] without restart.
   ///
   /// It automatically calls the [onLocaleChange].
   Locale changeLocale(Locale locale) {
@@ -140,6 +140,12 @@ class LocaleDelegate extends LocalizationsDelegate<AppLocale> {
     }
     return _currentLocale;
   }
+
+  /// To dynamically change the application [language] without restart.
+  ///
+  /// It automatically calls the [onLocaleChange].
+  String changeLanguage(String language) =>
+      changeLocale(getLocale(language)).toString();
 
   /// Get the current [AppLocale] instance for the [context]
   static AppLocale of(BuildContext context) =>
