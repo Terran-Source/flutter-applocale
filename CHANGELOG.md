@@ -1,3 +1,6 @@
+## 0.3.15
+- update documentation
+
 ## 0.3.14
 - Fix bugs: introducing deep copy with _updateMap
 
