@@ -1,3 +1,6 @@
+## 1.0.0
+- first major release :)
+
 ## 0.3.16
 - added LocaleDelegate.changeLanguage
 

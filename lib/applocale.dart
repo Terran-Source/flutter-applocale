@@ -10,5 +10,3 @@ export 'src/applocale_base.dart';
 /// - LocaleChangeCallback
 /// - getLocale
 export 'src/applocale_utility.dart';
-
-// TODO: Export any libraries intended for clients of this package.

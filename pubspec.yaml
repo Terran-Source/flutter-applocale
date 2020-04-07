@@ -1,6 +1,6 @@
 name: applocale
 description: A Flutter plugin to enable support for internationalization (i18n) or different language with json files.
-version: 0.3.16
+version: 1.0.0
 homepage: https://github.com/Terran-Source/applocale
 repository: https://github.com/Terran-Source/applocale
 issue_tracker: https://github.com/Terran-Source/applocale/issues
@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  interpolation: ^0.2.4
+  interpolation: ^1.0.0
   path: ^1.6.4
 
 dev_dependencies:
