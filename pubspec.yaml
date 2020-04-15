@@ -14,7 +14,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   interpolation: ^1.0.0
-  path: ^1.6.4
+  path: ^1.7.0
 
 dev_dependencies:
   flutter_test:
