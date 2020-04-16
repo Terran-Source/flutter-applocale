@@ -1,3 +1,6 @@
+## 1.0.1
+- upgrade package path
+
 ## 1.0.0
 - first major release :)
 
