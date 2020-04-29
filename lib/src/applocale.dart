@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:interpolation/interpolation.dart';
 import 'package:path/path.dart' as path;
 
-import 'applocale_utility.dart';
+import 'utility.dart';
 
 /// A factory to define application level `Localizations`.
 ///
