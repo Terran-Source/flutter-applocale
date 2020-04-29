@@ -1,3 +1,6 @@
+## 1.0.3
+- minor refactoring & package upgrade
+
 ## 1.0.2
 - degrade package path
 
