@@ -4,9 +4,9 @@ library applocale;
 /// Export the following classes
 /// - AppLocale
 /// - LocaleDelegate
-export 'src/applocale_base.dart';
+export 'src/applocale.dart';
 
 /// The following utilities are exported
 /// - LocaleChangeCallback
 /// - getLocale
-export 'src/applocale_utility.dart';
+export 'src/utility.dart';
