@@ -1,5 +1,6 @@
 name: applocale_example
 description: Flutter Plugin Demo
+publish_to: none
 
 version: 0.1.0
 
