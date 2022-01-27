@@ -1,3 +1,8 @@
+## 2.0.0
+- implemented null-safety
+- breaking change:
+  - `LocaleDelegate.of(context)` changed to `AppLocale.of(context)`
+
 ## 1.0.3
 - minor refactoring & package upgrade
 
