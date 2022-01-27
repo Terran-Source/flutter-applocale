@@ -1,3 +1,6 @@
+## 2.0.1
+- update documentation
+
 ## 2.0.0
 - implemented null-safety
 - breaking change:
