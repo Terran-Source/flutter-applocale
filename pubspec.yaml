@@ -6,15 +6,15 @@ repository: https://github.com/Terran-Source/applocale
 issue_tracker: https://github.com/Terran-Source/applocale/issues
 
 environment:
-  sdk: '>=2.1.0 <3.0.0'
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  extend: ^0.1.1
+
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  interpolation: ^1.0.1
-  path: ^1.6.4
+  interpolation: ^2.1.2
+  path: ^1.8.0
 
 dev_dependencies:
   flutter_test:
